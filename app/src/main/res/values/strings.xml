@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">DatabaseAPP</string>
+    <string name="app_name">DatabaseApp</string>
+    <string name="description_hint">Description</string>
+    <string name="category_hint">Category</string>
+    <string name="amount_hint">Amount</string>
+    <string name="save_expense">Save Expense</string>
+    <string name="load_expenses">Load Expenses</string>
 </resources>
