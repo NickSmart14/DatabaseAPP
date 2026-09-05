@@ -71,5 +71,25 @@ class MainActivity : AppCompatActivity() {
                 etAmount.text.clear()
             }
         }
+
+        btnLoad.setOnClickListener {
+            lifecycleScope.launch {
+                val expenses = expenseDao.getAll()
+                val total = expenseDao.getTotal()
+
+                tvExpenses.text = if (expenses.isEmpty()) {
+                    "No expenses saved yet"
+                } else {
+                    val rows = expenses.joinToString("\n") { expense ->
+                        "${expense.description} | " +
+                                "${expense.category} | " +
+                                "R%.2f".format(expense.amount)
+                    }
+
+                    "Total: R%.2f\n\n%s".format(total, rows)
+                }
+            }
+
+        }
     }
-} 
+}
